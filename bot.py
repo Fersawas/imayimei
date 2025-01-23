@@ -1,6 +1,7 @@
 import os
 import asyncio
-import logging 
+import logging
+import sys
 
 from aiogram import Bot, Dispatcher
 from aiogram.fsm.storage.memory import MemoryStorage
@@ -19,6 +20,13 @@ async def main(TOKEN):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(
+    level=logging.DEBUG,  # Уровень логирования
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[
+        logging.StreamHandler(sys.stdout),  # Вывод логов в stdout
+    ],)
+
     load_dotenv()
     logger = logging.getLogger(__name__)
     try:
