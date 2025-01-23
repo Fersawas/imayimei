@@ -20,5 +20,11 @@ async def main(TOKEN):
 
 if __name__ == '__main__':
     load_dotenv()
-    logging.basicConfig(level=logging.DEBUG)
-    asyncio.run(main(os.environ['BOT_TOKEN']))  
+    logger = logging.getLogger(__name__)
+    try:
+        logger.info('start')
+        logger.debug('try bot')
+        logging.basicConfig(level=logging.DEBUG)
+        asyncio.run(main(os.environ['BOT_TOKEN']))
+    except Exception as e:
+        logger.exception(e)
