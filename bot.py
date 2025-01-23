@@ -22,4 +22,5 @@ if __name__ == '__main__':
     load_dotenv()
     logging.basicConfig(level=logging.INFO)
     logging.info({os.environ["BOT_TOKEN"]})
+    print('HERE!!')
     asyncio.run(main(os.environ['BOT_TOKEN']))  
