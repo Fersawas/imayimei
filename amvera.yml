@@ -6,6 +6,9 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  command: ./start.sh
+run:
+  scriptName: /bin/bash
+  args:
+    - ./start.sh
   persistenceMount: /data
   containerPort: 80
