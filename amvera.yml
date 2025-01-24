@@ -7,6 +7,6 @@ build:
   requirementsPath: requirements.txt
 run:
 run:
-  scriptName: start.py
+  command: ./start.sh
   persistenceMount: /data
   containerPort: 80
