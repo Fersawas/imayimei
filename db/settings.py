@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     def get_db_url(self):
         try:
             if int(os.environ.get('AMVERA', 0)) == 1:
-                return f"postgresql+asyncpg://{self.DB_HOST}/{self.DB_NAME}"
+                return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}/{self.DB_NAME}"
             return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
         except Exception as e:
             logging.error('ERROR WHILE URL FROM TO DB', e)
