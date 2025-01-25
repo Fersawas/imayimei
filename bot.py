@@ -12,6 +12,8 @@ from handlers.router import router
 from db_handlers.router import router as db_router
 
 
+load_dotenv()
+
 async def main(TOKEN):
     bot = Bot(token=TOKEN)
     dp = Dispatcher(storage=MemoryStorage())
@@ -29,7 +31,6 @@ if __name__ == '__main__':
         logging.StreamHandler(sys.stdout),  # Вывод логов в stdout
     ],)
 
-    load_dotenv()
     logger = logging.getLogger(__name__)
     logging.basicConfig(level=logging.DEBUG)
     asyncio.run(main(os.environ.get('BOT_TOKEN')))
