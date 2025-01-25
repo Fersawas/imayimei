@@ -14,6 +14,7 @@ from db_handlers.router import router as db_router
 
 load_dotenv()
 
+
 async def main(TOKEN):
     bot = Bot(token=TOKEN)
     dp = Dispatcher(storage=MemoryStorage())
@@ -23,14 +24,15 @@ async def main(TOKEN):
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig(
-    level=logging.DEBUG,  # Уровень логирования
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(sys.stdout),  # Вывод логов в stdout
-    ],)
+        level=logging.DEBUG,  # Уровень логирования
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        handlers=[
+            logging.StreamHandler(sys.stdout),  # Вывод логов в stdout
+        ],
+    )
 
     logger = logging.getLogger(__name__)
     logging.basicConfig(level=logging.DEBUG)
-    asyncio.run(main(os.environ.get('BOT_TOKEN')))
+    asyncio.run(main(os.environ.get("BOT_TOKEN")))
