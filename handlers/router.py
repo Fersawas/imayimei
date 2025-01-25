@@ -49,3 +49,5 @@ async def check_imei(message: Message, command: CommandObject):
                 await message.answer(json_imei)
         else:
             await message.answer(MESSAGES["not_in_club"])
+    else:
+        await message.answer(MESSAGES["uncorrect_imei"])
